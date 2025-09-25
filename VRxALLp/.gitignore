@@ -1,0 +1,44 @@
+# Archivos de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Entornos virtuales
+venv/
+env/
+.venv/
+
+# Archivos de configuración/entorno
+*.env
+*.ini
+*.cfg
+*.toml
+*.json
+
+# Archivos de base de datos locales
+db.sqlite3
+
+# Archivos de Django compilados o generados
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+
+# Archivos estáticos y media
+/media/
+staticfiles/
+
+# Archivos de migración (opcionales, si quieres tener control total puedes no ignorarlos)
+# **Personalmente te recomiendo NO ignorar las migraciones**
+# */migrations/*.py
+# */migrations/*.pyc
+
+# Archivos de IDEs y editores
+.vscode/
+.idea/
+*.swp
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db

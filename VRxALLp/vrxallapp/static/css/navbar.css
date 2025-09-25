@@ -1,0 +1,69 @@
+body {
+  background-color: white;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Fila superior */
+.navbar-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.navbar-top .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar-top .logo img {
+  height: 40px;
+}
+
+.navbar-top .subtitle {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.navbar-top .user-icon img {
+  height: 35px;
+  cursor: pointer;
+}
+
+/* Fila inferior */
+.navbar-bottom {
+  display: flex;
+  justify-content: flex-start;
+  gap: 30px;
+  padding: 10px 20px;
+  border-top: 1px solid #ddd;
+}
+
+.navbar-bottom a {
+  text-decoration: none;
+  color: black;
+  padding: 5px 0;
+  position: relative;
+}
+
+.navbar-bottom a.active {
+  color: #007bff; /* azul */
+}
+
+.navbar-bottom a.active::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background-color: #007bff;
+}
