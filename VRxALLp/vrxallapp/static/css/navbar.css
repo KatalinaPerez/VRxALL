@@ -7,7 +7,8 @@ body {
 /* Navbar */
 .navbar {
   width: 100%;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 /* Fila superior */
@@ -15,22 +16,23 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 8px 20px;
 }
 
 .navbar-top .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .navbar-top .logo img {
-  height: 40px;
+  height: 45px;
 }
 
 .navbar-top .subtitle {
-  font-weight: bold;
-  font-size: 16px;
+  font-weight: 600;
+  font-size: 15px;
+  color: #333;
 }
 
 .navbar-top .user-icon img {
@@ -41,29 +43,38 @@ body {
 /* Fila inferior */
 .navbar-bottom {
   display: flex;
-  justify-content: flex-start;
-  gap: 30px;
-  padding: 10px 20px;
-  border-top: 1px solid #ddd;
+  justify-content: flex-start; /* centramos los links */
+  gap: 40px;
+  padding: 10px 20px; /* espacio alrededor, 1er n espacio arriba, 2do espacio izq */
+  border-top: 1px solid #eee;
+  background-color: #fafafa;
 }
 
 .navbar-bottom a {
   text-decoration: none;
-  color: black;
+  color: #333;
+  font-weight: 500;
+  font-size: 15px;
   padding: 5px 0;
   position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar-bottom a:hover {
+  color: #007bff;
 }
 
 .navbar-bottom a.active {
-  color: #007bff; /* azul */
+  color: #007bff; /* azul activo */
 }
 
 .navbar-bottom a.active::after {
   content: '';
   position: absolute;
-  top: 0;
+  top: -6px; /* línea justo arriba del texto */
   left: 0;
   height: 3px;
   width: 100%;
   background-color: #007bff;
+  border-radius: 2px;
 }
