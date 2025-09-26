@@ -1,0 +1,28 @@
+{% load static %}
+<nav class="navbar">
+  <!-- Fila superior -->
+  <div class="navbar-top">
+    <div class="logo">
+      <img src="{% static 'img/Logo VRxALL.png' %}" alt="VRforAll Logo">
+      <span class="subtitle">Realidad Virtual - Meta Quest</span>
+    </div>
+    <div class="user-icon">
+      {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">
+          <img src="{% static 'img/userIcon.png' %}" alt="Usuario">
+        </a>
+      {% else %}
+        <a href="{% url 'login' %}">
+          <img src="{% static 'img/userIcon.png' %}" alt="Login">
+        </a>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Fila inferior -->
+  <div class="navbar-bottom">
+    <a href="{% url 'inicio' %}" class="{% if request.path == '/' %}active{% endif %}">Inicio</a>
+    <a href="{% url 'aplicaciones' %}" class="{% if request.path == '/aplicaciones/' %}active{% endif %}">Aplicaciones</a>
+    <a href="{% url 'vincular' %}" class="{% if request.path == '/vincular/' %}active{% endif %}">Vincular dispositivos</a>
+  </div>
+</nav>
