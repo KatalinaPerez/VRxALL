@@ -1,9 +1,10 @@
 {% extends 'vrxallapp/bases/base.html' %}
 {% load static %}
-{% block content %}
+{% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/detalle.css' %}">
+{% endblock %}
+{% block content %}
 <div class="detalles-container">
-
     <!-- Columna izquierda:  -->
     <div class="left-column">
         <div class="floating-box"> 

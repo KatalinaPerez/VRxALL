@@ -3,7 +3,10 @@
 <head>
   <title>{% block title %}VR Projects{% endblock %}</title>
   {% load static %}
-  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+  {% block extra_css %}{% endblock %}
+
 </head>
 <body>
   {% include 'vrxallapp/bases/navbar.html' %}

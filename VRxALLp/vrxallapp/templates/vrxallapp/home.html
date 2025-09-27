@@ -1,9 +1,10 @@
 {% extends 'vrxallapp/bases/base.html' %}
 {% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
 {% block content %}
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
-
-    <div class="hero">
+    <!-- <div class="hero">
         <h1>Explora nuestras aplicaciones para el desarrollo personal <br>
             a la mano de la realidad virtual</h1>
         <div class="hero-banner">
@@ -13,7 +14,15 @@
                 <a href="#" class="btn">Ver aplicaciones</a>
             </div>
         </div>
+    </div> -->
+    <div class="hero-container">
+        <img src="{% static 'img/banner.png' %}" alt="Banner VR" class="hero-image">
+        <div class="hero-text">
+            <p>Aquí reunimos aplicaciones pensadas para ayudarte a desarrollar tus actividades y potenciar tu bienestar personal, cognitivo y físico, en un solo lugar.</p>
+            <a href="#" class="btn">Ver aplicaciones</a>
+        </div>
     </div>
+
 
     <div class="features">
         <div class="feature">

@@ -43,7 +43,7 @@
 .thumb-container {
   width: 100%;
   max-width: 600px;   /* igual que la imagen grande */
-  overflow: hidden;   /* ocultamos exceso */
+  overflow: hidden;   /* ocultamos exceso hidden, para scroll hacia al lado 'auto'*/
 }
 
 .thumbnail-row {
@@ -52,8 +52,18 @@
   transition: transform 0.3s ease; /* animación al actualizar miniaturas */
 }
 
+.thumbnail-row img {
+  width: auto;
+  height: 100px;
+  object-fit: cover;
+}
+
 .thumb {
-  flex: 0 0 23%;      /* para mostrar 4 miniaturas */
+  flex: 0 0 calc(25% - 5px);      /* para mostrar 4 miniaturas */
+  max-width: calc(25% - 5px);
+  width: 100%;
+  height: 100px;      /* alto fijo de las miniaturas */
+  object-fit: cover;  /* recorta en vez de deformar */
   cursor: pointer;
   border-radius: 5px;
 }
