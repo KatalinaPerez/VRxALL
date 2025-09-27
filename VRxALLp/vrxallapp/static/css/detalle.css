@@ -1,72 +1,77 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+.detalles-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
 }
 
-.project-detail {
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
-    max-width: 1100px;
-    margin: 3rem auto;
-    padding: 1rem;
+/* Columna izquierda */
+.left-column {
+  flex: 1;
+  max-width: 300px;
 }
 
-.info {
-    flex: 1;
+.floating-box {
+  position: sticky; /* se queda visible mientras scrollas */
+  top: 20px;        /* distancia desde arriba de la pantalla */
+  background: #f0f0f0;
+  padding: 15px;
+  border-radius: 8px;
 }
 
-.info h2 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+.info-box {
+  background: #f0f0f0;
+  padding: 15px;
+  border-radius: 8px;
 }
 
-.info p {
-    margin: 0.5rem 0;
-}
-
-.info .btn {
-    background: #3a4cff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    margin: 1rem 0;
+/* Columna derecha */
+.right-column {
+  flex: 3; /* ocupa más espacio que la columna izquierda */
 }
 
 /* Carrusel */
-.carousel {
-    flex: 1;
-    text-align: center;
+.carousel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 
-.carousel-main img {
-    width: 100%;
-    max-height: 400px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+.main-image img {
+  width: 100%;
+  max-width: 600px; /* ancho máximo */
+  height: auto;
+  border-radius: 8px;
 }
 
-.carousel-thumbs {
-    display: flex;
-    gap: 0.5rem;
-    margin-top: 1rem;
-    justify-content: center;
+.thumbnail-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 600px; /* misma anchura que la imagen grande */
 }
 
-.carousel-thumbs img {
-    width: 70px;
-    height: 70px;
-    object-fit: cover;
-    border-radius: 6px;
-    cursor: pointer;
-    opacity: 0.6;
-    transition: opacity 0.2s;
+.thumbnail-row img {
+  width: 23%; /* 4 imágenes pequeñas ocupan todo el ancho con algo de espacio */
+  cursor: pointer;
+  border-radius: 5px;
 }
 
-.carousel-thumbs img:hover {
-    opacity: 1;
+/* .icon {
+    width: auto;       /* tamaño de la imagen 
+    height: auto;
+    vertical-align: middle; /* que quede alineada con el texto 
+    margin-right: 6px;  /* espacio entre la imagen y el texto 
+} */
+
+.with-icon {
+    display: flex;         /* hace que la imagen y el texto estén en fila */
+    align-items: flex-start;   /* centra verticalmente la imagen con el texto */
+}
+
+.with-icon .icon {
+    flex-shrink: 0;        /* la imagen no se encoge */
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;     /* espacio entre la imagen y el texto */
 }

@@ -2,39 +2,43 @@
 {% load static %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/detalle.css' %}">
+<div class="detalles-container">
 
-<div class="project-detail">
-    <div class="info">
-        <h2>{{ app.nombre }}</h2>
-        <p>{{ app.categoria }} • {{ app.tipo }}</p>
-        <button class="btn">Descargar</button>
-        <p>{{ app.descripcion }}</p>
-    </div>
-
-    <!-- Carrusel -->
-    <div class="carousel">
-        <div class="carousel-main">
-            <img id="main-image" src="{% static app.imagenes.0 %}" alt="Imagen principal">
-        </div>
-        <div class="carousel-thumbs">
-            {% for imagen in app.imagenes %}
-                <img class="thumb" src="{% static imagen %}" alt="Miniatura">
-            {% endfor %}
+    <!-- Columna izquierda:  -->
+    <div class="left-column">
+        <div class="floating-box"> 
+            <h2>{{ app.nombre }}</h2>
+            <p class="with-icon"><img src="/static/img/estrellita.png" alt="estrellita" class="icon"> {{ app.categoria }} • {{ app.tipo }}</p>
+            <p class="with-icon"><img src="/static/img/E.png" alt="edad" class="icon"> {{ app.edades }}</p>
+            <p class="with-icon"><img src="/static/img/candadito.png" alt="candadito" class="icon"> {{ app.candado }}</p>
+            <button class="btn">Descargar</button>
         </div>
     </div>
+
+    <!-- Columna derecha: carrusel -->
+    <div class="right-column">
+        <div class="carousel-container">
+            <!-- Imagen grande -->
+            <div class="main-image">
+                <img src="{% static 'img/sportmind1.png' %}" alt="Imagen grande" id="main-img" data-src="{% static 'img/sportmind1.png' %}">
+            </div>
+            <!-- Miniaturas -->
+            <div class="thumbnail-row">
+                <img src="{% static 'img/sportmind2.png' %}" alt="Mini 1" class="thumb" data-src="{% static 'img/sportmind2.png' %}">
+                <img src="{% static 'img/sportmind3.png' %}" alt="Mini 2" class="thumb" data-src="{% static 'img/sportmind3.png' %}">
+                <img src="{% static 'img/sportmind4.png' %}" alt="Mini 3" class="thumb" data-src="{% static 'img/sportmind4.png' %}">
+                <img src="{% static 'img/sportmind5.png' %}" alt="Mini 4" class="thumb" data-src="{% static 'img/sportmind5.png' %}">
+            </div>
+        </div>
+
+        <div>
+            <h3>Descripción</h3>
+            <p>{{ app.descripcion }}</p>
+        </div>
+    </div>
+
 </div>
 
-<script>
-    let index = 0;
-    const images = document.querySelectorAll('.thumb');
-    const mainImage = document.getElementById('main-image');
-
-    function rotate() {
-        index = (index + 1) % images.length;
-        mainImage.src = images[index].src;
-    }
-
-    setInterval(rotate, 4000); // rota cada 4 segundos
-</script>
-
+<!-- JavaScript del carrusel -->
+<script src="{% static 'js/detalles.js' %}"></script>
 {% endblock %}
