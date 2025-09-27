@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}VR Projects{% endblock %}</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+  {% include 'vrxallapp/bases/navbar.html' %}
+  
+  <main>
+    {% block content %}
+    
+    {% endblock %}
+  </main>
+  
+  {% include 'vrxallapp/bases/footer.html' %}
+</body>
+</html>

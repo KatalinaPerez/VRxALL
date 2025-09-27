@@ -1,0 +1,40 @@
+{% extends 'vrxallapp/bases/base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/detalle.css' %}">
+
+<div class="project-detail">
+    <div class="info">
+        <h2>{{ app.nombre }}</h2>
+        <p>{{ app.categoria }} • {{ app.tipo }}</p>
+        <button class="btn">Descargar</button>
+        <p>{{ app.descripcion }}</p>
+    </div>
+
+    <!-- Carrusel -->
+    <div class="carousel">
+        <div class="carousel-main">
+            <img id="main-image" src="{% static app.imagenes.0 %}" alt="Imagen principal">
+        </div>
+        <div class="carousel-thumbs">
+            {% for imagen in app.imagenes %}
+                <img class="thumb" src="{% static imagen %}" alt="Miniatura">
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<script>
+    let index = 0;
+    const images = document.querySelectorAll('.thumb');
+    const mainImage = document.getElementById('main-image');
+
+    function rotate() {
+        index = (index + 1) % images.length;
+        mainImage.src = images[index].src;
+    }
+
+    setInterval(rotate, 4000); // rota cada 4 segundos
+</script>
+
+{% endblock %}

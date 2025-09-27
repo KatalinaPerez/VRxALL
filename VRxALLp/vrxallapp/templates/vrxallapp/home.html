@@ -1,0 +1,52 @@
+{% extends 'vrxallapp/bases/base.html' %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+    <div class="hero">
+        <h1>Explora nuestras aplicaciones para el desarrollo personal <br>
+            a la mano de la realidad virtual</h1>
+        <div class="hero-banner">
+            <img src="{% static 'img/banner.png' %}" alt="Banner VR">
+            <div class="hero-text">
+                <p>Aquí reunimos aplicaciones pensadas para ayudarte a desarrollar tus actividades y potenciar tu bienestar personal, cognitivo y físico, en un solo lugar.</p>
+                <a href="#" class="btn">Ver aplicaciones</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="features">
+        <div class="feature">
+            <img src="{% static 'img/vr_glasses.png' %}" alt="Conectar gafas">
+            <p><strong>¿Cómo conectar tus gafas?</strong><br>Sigue este paso a paso para poder utilizarlas desde tu PC</p>
+        </div>
+        <div class="feature">
+            <img src="{% static 'img/download_app.png' %}" alt="Descargar app">
+            <p><strong>¿Deseas descargar una aplicación?</strong><br>Únete a nuestra red. Contáctanos para ser parte de VR x All.</p>
+        </div>
+    </div>
+
+    <div class="apps-section">
+        <h2>Conoce nuestras aplicaciones</h2>
+        <div class="apps-grid">
+            <a href="{% url 'detalles_app' 'sportmind' %}" class="app-card">
+                <img src="{% static 'img/sportmind.png' %}" alt="SportMind">
+                <p><strong>SportMind</strong><br>Deporte • Destreza</p>
+            </a>
+            <a href="#" class="app-card">
+                <img src="{% static 'img/neuroflex.png' %}" alt="NeuroFlex">
+                <p><strong>NeuroFlex</strong><br>Testeo • Exigencia</p>
+            </a>
+            <a href="#" class="app-card">
+                <img src="{% static 'img/emotionlab.png' %}" alt="EmotionLab">
+                <p><strong>EmotionLab</strong><br>Cognición • Estimulación</p>
+            </a>
+            <a href="#" class="app-card">
+                <img src="{% static 'img/acvr.png' %}" alt="AcVR">
+                <p><strong>AcVR</strong><br>Estimulación • Desarrollo</p>
+            </a>
+        </div>
+        <p class="note">Recuerda que nuestras aplicaciones están en constante actualización</p>
+    </div>
+
+{% endblock %}

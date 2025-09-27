@@ -1,0 +1,40 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/footer.css' %}">
+<footer class="site-footer">
+    
+    <div class="footer-top">
+        <img src="{% static 'img/Logo VRxALL.png' %}" alt="VRxALL Logo" class="footer-logo">
+    </div>
+
+     <div class="footer-container">
+        <!-- Columna 1 -->
+        <div class="footer-col">
+        <p>Douc UC - Sede Viña del Mar</p>
+        <p>Douc UC Centro Tecnológico</p>
+        <p>Alvárez 2366, Chorrillos, Viña del Mar</p>
+        </div>
+        <!-- Columna 2 -->
+        <div class="footer-col">
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="#">Aplicaciones</a></li>
+            <li><a href="#">Cómo instalar mis lentes?</a></li>
+        </ul>
+        </div>
+        <!-- Columna 3 -->
+        <div class="footer-col">
+        <ul>
+            <li><a href="#">AcVR</a></li>
+            <li><a href="#">EmotionLab</a></li>
+            <li><a href="#">NeuroFlex</a></li>
+            <li><a href="#">SportMind</a></li>
+        </ul>
+        </div>
+     </div>
+
+  <!-- Fila inferior con logos -->
+  <div class="footer-bottom">
+    <img src="{% static 'img/logocitt.png' %}" alt="Citt Logo" class="footer-bottom-logo">
+    <img src="{% static 'img/logoduoc.png' %}" alt="Duoc Logo" class="footer-bottom-logo">
+  </div>
+</footer>
