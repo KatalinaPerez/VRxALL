@@ -1,26 +1,27 @@
-const mainImg = document.getElementById('main-img');
-const thumbnails = document.querySelectorAll('.thumbnail-row .thumb');
+document.addEventListener("DOMContentLoaded", () => {
+    const mainImg = document.getElementById("main-img");
+    const thumbnails = Array.from(document.querySelectorAll(".thumb"));
+    let currentIndex = 0;
 
-let images = [];
-thumbnails.forEach(thumb => images.push(thumb.dataset.src));
-images.unshift(mainImg.dataset.src); // agregamos la imagen grande al inicio
-
-
-let currentIndex = 0;
-
-function rotateCarousel() {
-    // Imagen grande
-    mainImg.src = images[currentIndex];
-
-    // Miniaturas
-    for (let i = 0; i < thumbnails.length; i++) {
-        let imgIndex = (currentIndex + i + 1) % images.length;
-        thumbnails[i].src = images[imgIndex];
+    function updateThumbnails(startIndex) {
+        thumbnails.forEach((thumb, i) => {
+            thumb.style.display = "none"; // ocultamos todas
+        });
+        // mostramos las 4 miniaturas empezando desde startIndex
+        for (let i = 0; i < 4; i++) {
+            const index = (startIndex + i + 1) % thumbnails.length; // +1 porque la principal no se muestra abajo
+            thumbnails[index].style.display = "block";
+        }
     }
 
-    // Siguiente imagen
-    currentIndex = (currentIndex + 1) % images.length;
-}
+    // inicializar miniaturas
+    updateThumbnails(currentIndex);
 
-// Rotar cada 3 segundos
-setInterval(rotateCarousel, 3000);
+    thumbnails.forEach((thumb, i) => {
+        thumb.addEventListener("click", () => {
+            mainImg.src = thumb.src;        // cambiar imagen grande
+            currentIndex = i;               // nueva principal
+            updateThumbnails(currentIndex); // rotar miniaturas
+        });
+    });
+});

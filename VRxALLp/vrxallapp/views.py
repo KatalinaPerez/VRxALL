@@ -30,12 +30,12 @@ def detalles_app(request, slug):
             'candado':'Esta aplicación recopilará y almacenará tu información y datos de progreso, incluyendo tu nombre de usuario, para optimizar tu experiencia y contribuir a mejoras futuras.',
             'descripcion': 'Imagina entrenar tu mente...',
             'imagenes': [
-                'img/sportmind1.png',
-                'img/sportmind2.png',
-                'img/sportmind3.png',
-                'img/sportmind4.png',
-                'img/sportmind5.png',
-                'img/sportmind6.png',
+                'img/neuroflex1.png',
+                'img/neuroflex2.png',
+                'img/neuroflex3.png',
+                'img/neuroflex4.png',
+                'img/neuroflex5.png',
+                'img/neuroflex6.png',
             ]
         },
     }

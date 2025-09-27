@@ -18,18 +18,22 @@
     <!-- Columna derecha: carrusel -->
     <div class="right-column">
         <div class="carousel-container">
-            <!-- Imagen grande -->
-            <div class="main-image">
-                <img src="{% static 'img/sportmind1.png' %}" alt="Imagen grande" id="main-img" data-src="{% static 'img/sportmind1.png' %}">
-            </div>
-            <!-- Miniaturas -->
-            <div class="thumbnail-row">
-                <img src="{% static 'img/sportmind2.png' %}" alt="Mini 1" class="thumb" data-src="{% static 'img/sportmind2.png' %}">
-                <img src="{% static 'img/sportmind3.png' %}" alt="Mini 2" class="thumb" data-src="{% static 'img/sportmind3.png' %}">
-                <img src="{% static 'img/sportmind4.png' %}" alt="Mini 3" class="thumb" data-src="{% static 'img/sportmind4.png' %}">
-                <img src="{% static 'img/sportmind5.png' %}" alt="Mini 4" class="thumb" data-src="{% static 'img/sportmind5.png' %}">
+
+        <!-- Imagen grande -->
+        <div class="main-image">
+            <img src="{% static app.imagenes.0 %}" alt="Imagen grande" id="main-img">
+        </div>
+
+        <!-- Miniaturas -->
+        <div class="thumb-container">
+            <div class="thumbnail-row" id="thumbnail-row">
+                {% for img in app.imagenes %}
+                    <img src="{% static img %}" alt="Mini {{ forloop.counter }}" class="thumb">
+                {% endfor %}
             </div>
         </div>
+
+</div>
 
         <div>
             <h3>Descripción</h3>

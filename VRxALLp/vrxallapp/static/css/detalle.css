@@ -1,3 +1,4 @@
+/* Contenedor principal */
 .detalles-container {
   display: flex;
   gap: 20px;
@@ -11,14 +12,8 @@
 }
 
 .floating-box {
-  position: sticky; /* se queda visible mientras scrollas */
-  top: 20px;        /* distancia desde arriba de la pantalla */
-  background: #f0f0f0;
-  padding: 15px;
-  border-radius: 8px;
-}
-
-.info-box {
+  position: sticky;
+  top: 20px;
   background: #f0f0f0;
   padding: 15px;
   border-radius: 8px;
@@ -26,7 +21,7 @@
 
 /* Columna derecha */
 .right-column {
-  flex: 3; /* ocupa más espacio que la columna izquierda */
+  flex: 3;
 }
 
 /* Carrusel */
@@ -39,39 +34,53 @@
 
 .main-image img {
   width: 100%;
-  max-width: 600px; /* ancho máximo */
+  max-width: 600px; /* ancho de la imagen grande */
   height: auto;
   border-radius: 8px;
 }
 
-.thumbnail-row {
-  display: flex;
-  justify-content: space-between;
+/* Contenedor de miniaturas */
+.thumb-container {
   width: 100%;
-  max-width: 600px; /* misma anchura que la imagen grande */
+  max-width: 600px;   /* igual que la imagen grande */
+  overflow: hidden;   /* ocultamos exceso */
 }
 
-.thumbnail-row img {
-  width: 23%; /* 4 imágenes pequeñas ocupan todo el ancho con algo de espacio */
+.thumbnail-row {
+  display: flex;
+  gap: 5px;
+  transition: transform 0.3s ease; /* animación al actualizar miniaturas */
+}
+
+.thumb {
+  flex: 0 0 23%;      /* para mostrar 4 miniaturas */
   cursor: pointer;
   border-radius: 5px;
 }
 
-/* .icon {
-    width: auto;       /* tamaño de la imagen 
-    height: auto;
-    vertical-align: middle; /* que quede alineada con el texto 
-    margin-right: 6px;  /* espacio entre la imagen y el texto 
-} */
-
+/* Iconos en los <p> de la columna izquierda */
 .with-icon {
-    display: flex;         /* hace que la imagen y el texto estén en fila */
-    align-items: flex-start;   /* centra verticalmente la imagen con el texto */
+  display: flex;
+  align-items: flex-start;
 }
 
 .with-icon .icon {
-    flex-shrink: 0;        /* la imagen no se encoge */
-    width: 16px;
-    height: 16px;
-    margin-right: 6px;     /* espacio entre la imagen y el texto */
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+}
+
+/* Botón */
+.btn {
+  padding: 10px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #45a049;
 }
