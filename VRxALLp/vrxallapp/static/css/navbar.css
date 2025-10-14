@@ -16,23 +16,27 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 20px;
+  padding: 10px 20px;
 }
 
 .navbar-top .logo {
   display: flex;
-  align-items: center;
-  gap: 12px;
+  align-items: center; /* centra verticalmente logo y textos */
+  gap: 6px;
+  line-height: 1;      /* asegura que la altura de los spans no estire la fila */
 }
 
 .navbar-top .logo img {
-  height: 45px;
+  height: 15px;    /* iguala altura del texto o 15px*/
+  width: auto;
+  display: block;
 }
 
 .navbar-top .subtitle {
   font-weight: 600;
   font-size: 15px;
   color: #333;
+  /* line-height: 1;       quita espacio extra vertical */
 }
 
 .navbar-top .user-icon img {

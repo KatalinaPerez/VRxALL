@@ -1,40 +1,49 @@
 {% extends 'vrxallapp/bases/base.html' %}
 {% load static %}
-{% block content %}
+{% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/detalle.css' %}">
-
-<div class="project-detail">
-    <div class="info">
-        <h2>{{ app.nombre }}</h2>
-        <p>{{ app.categoria }} • {{ app.tipo }}</p>
-        <button class="btn">Descargar</button>
-        <p>{{ app.descripcion }}</p>
-    </div>
-
-    <!-- Carrusel -->
-    <div class="carousel">
-        <div class="carousel-main">
-            <img id="main-image" src="{% static app.imagenes.0 %}" alt="Imagen principal">
-        </div>
-        <div class="carousel-thumbs">
-            {% for imagen in app.imagenes %}
-                <img class="thumb" src="{% static imagen %}" alt="Miniatura">
-            {% endfor %}
+{% endblock %}
+{% block content %}
+<div class="detalles-container">
+    <!-- Columna izquierda:  -->
+    <div class="left-column">
+        <div class="floating-box"> 
+            <h2>{{ app.nombre }}</h2>
+            <p class="with-icon"><img src="/static/img/estrellita.png" alt="estrellita" class="icon"> {{ app.categoria }} • {{ app.tipo }}</p>
+            <p class="with-icon"><img src="/static/img/E.png" alt="edad" class="icon"> {{ app.edades }}</p>
+            <p class="with-icon"><img src="/static/img/candadito.png" alt="candadito" class="icon"> {{ app.candado }}</p>
+            <button class="btn">Descargar</button>
         </div>
     </div>
+
+    <!-- Columna derecha: carrusel -->
+    <div class="right-column">
+        <div class="carousel-container">
+
+        <!-- Imagen grande -->
+        <div class="main-image">
+            <img src="{% static app.imagenes.0 %}" alt="Imagen grande" id="main-img">
+        </div>
+
+        <!-- Miniaturas -->
+        <div class="thumb-container">
+            <div class="thumbnail-row" id="thumbnail-row">
+                {% for img in app.imagenes %}
+                    <img src="{% static img %}" alt="Mini {{ forloop.counter }}" class="thumb">
+                {% endfor %}
+            </div>
+        </div>
+
 </div>
 
-<script>
-    let index = 0;
-    const images = document.querySelectorAll('.thumb');
-    const mainImage = document.getElementById('main-image');
+        <div>
+            <h3>Descripción</h3>
+            <p>{{ app.descripcion }}</p>
+        </div>
+    </div>
 
-    function rotate() {
-        index = (index + 1) % images.length;
-        mainImage.src = images[index].src;
-    }
+</div>
 
-    setInterval(rotate, 4000); // rota cada 4 segundos
-</script>
-
+<!-- JavaScript del carrusel -->
+<script src="{% static 'js/detalles.js' %}"></script>
 {% endblock %}
