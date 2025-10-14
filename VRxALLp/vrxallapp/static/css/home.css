@@ -5,6 +5,10 @@ body {
     color: #333;
 }
 
+h1 {
+    text-align: center;
+    margin: 2rem 0;
+}
 /* Hero / Imagen con texto y botón */
 .hero-container {
     position: relative;    /* necesario para posicionar el texto absoluto */
@@ -44,7 +48,7 @@ body {
 }
 
 .hero-text .btn {
-    background-color: #3a4cff;
+    background-color: #013A6B;
     padding: 10px 20px;
     border-radius: 6px;
     text-decoration: none;
@@ -62,7 +66,7 @@ body {
     background: #fff;
 }
 
-.feature {
+/* .feature {
     width: 300px;
     text-align: center;
 }
@@ -70,7 +74,7 @@ body {
 .feature img {
     width: 100%;
     border-radius: 10px;
-}
+} */
 
 /* Apps section */
 .apps-section {
