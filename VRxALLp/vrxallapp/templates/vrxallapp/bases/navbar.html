@@ -7,18 +7,18 @@
     </div>
     <span class="subtitle">Realidad Virtual</span>
     <span class="subtitle">Meta Quest</span>
+    
     <div class="user-icon">
-      <img src="{% static 'img/userIcon.png' %}">
-    </div>
-    <!-- <div class="user-icon">
       {% if user.is_authenticated %}
-          <img src="{% static 'img/user_icon.png' %}" alt="Usuario">
+        <a href="{% url 'logout' %}">
+          <img src="{% static 'img/userIcon.png' %}" alt="Usuario">
         </a>
       {% else %}
-          <img src="{% static 'img/user_icon.png' %}" alt="Login">
+        <a href="{% url 'login' %}">
+          <img src="{% static 'img/userIcon.png' %}" alt="Login">
         </a>
       {% endif %}
-    </div> -->
+    </div>
 
   </div>
 
