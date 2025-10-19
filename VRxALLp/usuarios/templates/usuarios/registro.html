@@ -1,11 +1,10 @@
-{# usuarios/templates/usuarios/registro.html #}
-
-{% extends 'vrxallapp/bases/base.html' %}  {# Usa la ruta correcta a tu base.html #}
+{% extends 'vrxallapp/bases/base.html' %}
+{% load static %}
 
 {% block content %}
-<div class="container mt-5">
+<div class="auth-page-wrapper">
     <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-6 auth-container">
             <h2>Crear una Cuenta</h2>
             <hr>
             <form method="POST">
