@@ -60,3 +60,6 @@ def logout_get_view(request):
     logout(request)
     # Redirigimos a la página principal
     return redirect('home')
+
+def cuenta_view(request):
+    return render(request, 'usuarios/cuenta.html')
