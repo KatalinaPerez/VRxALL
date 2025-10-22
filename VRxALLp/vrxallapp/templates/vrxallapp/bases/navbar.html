@@ -8,17 +8,29 @@
     <span class="subtitle">Realidad Virtual</span>
     <span class="subtitle">Meta Quest</span>
     
-    <div class="user-icon">
-      {% if user.is_authenticated %}
-        <a href="{% url 'logout' %}">
-          <img src="{% static 'img/userIcon.png' %}" alt="Usuario">
-        </a>
-      {% else %}
-        <a href="{% url 'login' %}">
-          <img src="{% static 'img/userIcon.png' %}" alt="Login">
-        </a>
-      {% endif %}
+    <div class="user-menu">
+    
+    <div class="user-trigger">
+        {% if user.is_authenticated %}
+            <span>Hola, {{ user.first_name|default:user.username }}</span>
+        {% else %}
+            <span>¡Hola! Ingresa</span>
+        {% endif %}
+        <img class="user-icon-img" src="{% static 'img/userIcon.png' %}" alt="Usuario">
     </div>
+
+    <div class="dropdown-content">
+        {% if user.is_authenticated %}
+            <a href="#" class="dropdown-item">Mi cuenta</a>
+            <a href="{% url 'logout' %}" class="dropdown-item">Cerrar sesión</a>
+        
+        {% else %}
+            <a href="{% url 'login' %}" class="dropdown-btn btn-primary">Iniciar sesión</a>
+            
+            <a href="#" class="dropdown-btn btn-secondary">Crear cuenta</a> 
+        {% endif %}
+    </div>
+</div>
 
   </div>
 
@@ -29,3 +41,5 @@
     <a href="{% url 'home' %}" class="{% if request.path == '/vincular/' %}active{% endif %}">Vincular dispositivos</a>
   </div>
 </nav>
+
+<script src="{% static 'js/menu.js' %}"></script>
