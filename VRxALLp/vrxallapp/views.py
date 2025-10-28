@@ -39,6 +39,38 @@ def detalles_app(request, slug):
                 'img/neuroflex6.png',
             ]
         },
+        'emotionlab': {
+            'nombre': 'NeuroFlex',
+            'categoria': 'Deporte',
+            'tipo': 'Destreza',
+            'edades':'Contenido es apto para todas las edades',
+            'candado':'Esta aplicación recopilará y almacenará tu información y datos de progreso, incluyendo tu nombre de usuario, para optimizar tu experiencia y contribuir a mejoras futuras.',
+            'descripcion': 'Imagina entrenar tu mente...',
+            'imagenes': [
+                'img/emotionlab.png',
+                'img/neuroflex2.png',
+                'img/neuroflex3.png',
+                'img/neuroflex4.png',
+                'img/neuroflex5.png',
+                'img/neuroflex6.png',
+            ]
+        },
+        'acvr': {
+            'nombre': 'NeuroFlex',
+            'categoria': 'Deporte',
+            'tipo': 'Destreza',
+            'edades':'Contenido es apto para todas las edades',
+            'candado':'Esta aplicación recopilará y almacenará tu información y datos de progreso, incluyendo tu nombre de usuario, para optimizar tu experiencia y contribuir a mejoras futuras.',
+            'descripcion': 'Imagina entrenar tu mente...',
+            'imagenes': [
+                'img/acvr.png',
+                'img/neuroflex2.png',
+                'img/neuroflex3.png',
+                'img/neuroflex4.png',
+                'img/neuroflex5.png',
+                'img/neuroflex6.png',
+            ]
+        },
     }
     app = apps.get(slug)
     return render(request, 'vrxallapp/detalles_app.html', {'app': app})
