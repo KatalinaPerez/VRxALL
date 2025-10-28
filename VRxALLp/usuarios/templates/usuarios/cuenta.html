@@ -1,0 +1,35 @@
+{% extends 'vrxallapp/bases/base.html' %}
+{% load static %}
+
+{% block content %}  
+<div class="account-container">
+
+    <div class="account-header">
+        <h1>Mi Cuenta</h1>
+        <p>Aquí puedes ver tu información personal.</p>
+    </div>
+
+    <dl class="profile-info">
+        <dt>Usuario:</dt>
+        <dd>{{ user.username }}</dd>
+
+        <dt>Nombre:</dt>
+        <dd>{{ user.first_name|default:'<i>No especificado</i>'|safe }}</dd>
+
+        <dt>Apellido:</dt>
+        <dd>{{ user.last_name|default:'<i>No especificado</i>'|safe }}</dd>
+
+        <dt>Email:</dt>
+        <dd>{{ user.email }}</dd>
+        
+        <dt>Miembro desde:</dt>
+        <dd>{{ user.date_joined|date:"d \d\e F, Y" }}</dd>
+    </dl>
+
+    <div class="account-actions">
+        <a href="#" class="btn-edit">Editar Perfil</a>
+        <a href="#" class="btn-password">Cambiar Contraseña</a>
+    </div>
+
+</div>
+{% endblock %}

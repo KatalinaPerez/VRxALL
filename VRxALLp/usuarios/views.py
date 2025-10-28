@@ -68,14 +68,5 @@ def logout_get_view(request):
     # Redirigimos a la página principal
     return redirect('home')
 
-def enviar_bienvenida(email_destino, nombre):
-    remitente = "tu_correo@gmail.com"
-    clave = "contraseña_app_específica"
-    mensaje = MIMEText(f"¡Hola {nombre}! Bienvenido a VR x ALL. Gracias por unirte a nuestra comunidad.")
-    mensaje['Subject'] = "Bienvenida a VR x ALL"
-    mensaje['From'] = remitente
-    mensaje['To'] = email_destino
-
-    with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
-        smtp.login(remitente, clave)
-        smtp.send_message(mensaje)
+def cuenta_view(request):
+    return render(request, 'usuarios/cuenta.html')

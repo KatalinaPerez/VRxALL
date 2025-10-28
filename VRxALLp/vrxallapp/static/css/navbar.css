@@ -51,6 +51,63 @@
 .dropdown-item {
   display: block; /* Ocupan todo el ancho */
   width: 100%;
+  background-color: #007bff;
+  border-radius: 2px;
+}
+
+/* --- ESTILOS PARA EL NUEVO MENÚ DE USUARIO --- */
+/* (Añadir esto al final de tu CSS) */
+
+/* 1. Contenedor principal del menú */
+.user-menu {
+  position: relative; /* Clave para que el dropdown se posicione correctamente */
+  display: inline-block; /* Para que se alinee con los otros elementos */
+}
+
+/* 2. Trigger (texto + icono) */
+.user-trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espacio entre el texto y el icono */
+  cursor: pointer;
+  color: #333; /* Hereda tu color de texto */
+  font-weight: 600; /* Igual que tus subtitles */
+  font-size: 15px; /* Igual que tus subtitles */
+}
+
+/* 3. Imagen del icono dentro del trigger */
+.user-icon-img {
+  height: 35px; /* Tu estilo original */
+  cursor: pointer;
+}
+
+/* 4. Contenido del dropdown (oculto por defecto) */
+.dropdown-content {
+  display: none; /* Oculto por defecto */
+  position: absolute;
+  right: 0; /* Alineado a la derecha */
+  top: 100%; /* Justo debajo del trigger */
+  margin-top: 10px; /* Pequeño espacio para que no esté pegado */
+  background-color: #ffffff;
+  min-width: 220px; /* Ancho del menú */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Tu sombra de navbar, un poco más oscura */
+  border-radius: 8px; /* Bordes redondeados */
+  border: 1px solid #eee; /* Borde sutil */
+  z-index: 1000; /* Para que esté por encima de todo */
+  padding: 12px;
+  box-sizing: border-box; /* Para que el padding no afecte el ancho */
+}
+
+/* 5. Magia: Mostrar el dropdown al hacer hover sobre .user-menu */
+.user-menu.active .dropdown-content {
+  display: block; /* Se muestra al hacer click */
+}
+
+/* 6. Estilos para los links y botones DENTRO del dropdown */
+.dropdown-btn,
+.dropdown-item {
+  display: block; /* Ocupan todo el ancho */
+  width: 100%;
   text-decoration: none;
   padding: 10px 12px;
   box-sizing: border-box; 
