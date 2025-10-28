@@ -1,84 +1,98 @@
-body {
-  background-color: white;
-  margin: 0;
-  font-family: Arial, sans-serif;
+/* --- ESTILOS PARA EL NUEVO MENÚ DE USUARIO --- */
+/* (Añadir esto al final de tu CSS) */
+
+/* 1. Contenedor principal del menú */
+.user-menu {
+  position: relative; /* Clave para que el dropdown se posicione correctamente */
+  display: inline-block; /* Para que se alinee con los otros elementos */
 }
 
-/* Navbar */
-.navbar {
-  width: 100%;
-  border-bottom: 1px solid #ddd;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-/* Fila superior */
-.navbar-top {
+/* 2. Trigger (texto + icono) */
+.user-trigger {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  gap: 8px; /* Espacio entre el texto y el icono */
+  cursor: pointer;
+  color: #333; /* Hereda tu color de texto */
+  font-weight: 600; /* Igual que tus subtitles */
+  font-size: 15px; /* Igual que tus subtitles */
 }
 
-.navbar-top .logo {
-  display: flex;
-  align-items: center; /* centra verticalmente logo y textos */
-  gap: 6px;
-  line-height: 1;      /* asegura que la altura de los spans no estire la fila */
-}
-
-.navbar-top .logo img {
-  height: 15px;    /* iguala altura del texto o 15px*/
-  width: auto;
-  display: block;
-}
-
-.navbar-top .subtitle {
-  font-weight: 600;
-  font-size: 15px;
-  color: #333;
-  /* line-height: 1;       quita espacio extra vertical */
-}
-
-.navbar-top .user-icon img {
-  height: 35px;
+/* 3. Imagen del icono dentro del trigger */
+.user-icon-img {
+  height: 35px; /* Tu estilo original */
   cursor: pointer;
 }
 
-/* Fila inferior */
-.navbar-bottom {
-  display: flex;
-  justify-content: flex-start; /* centramos los links */
-  gap: 40px;
-  padding: 10px 20px; /* espacio alrededor, 1er n espacio arriba, 2do espacio izq */
-  border-top: 1px solid #eee;
-  background-color: #fafafa;
-}
-
-.navbar-bottom a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  font-size: 15px;
-  padding: 5px 0;
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-.navbar-bottom a:hover {
-  color: #007bff;
-}
-
-.navbar-bottom a.active {
-  color: #007bff; /* azul activo */
-}
-
-.navbar-bottom a.active::after {
-  content: '';
+/* 4. Contenido del dropdown (oculto por defecto) */
+.dropdown-content {
+  display: none; /* Oculto por defecto */
   position: absolute;
-  top: -6px; /* línea justo arriba del texto */
-  left: 0;
-  height: 3px;
+  right: 0; /* Alineado a la derecha */
+  top: 100%; /* Justo debajo del trigger */
+  margin-top: 10px; /* Pequeño espacio para que no esté pegado */
+  background-color: #ffffff;
+  min-width: 220px; /* Ancho del menú */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Tu sombra de navbar, un poco más oscura */
+  border-radius: 8px; /* Bordes redondeados */
+  border: 1px solid #eee; /* Borde sutil */
+  z-index: 1000; /* Para que esté por encima de todo */
+  padding: 12px;
+  box-sizing: border-box; /* Para que el padding no afecte el ancho */
+}
+
+/* 5. Magia: Mostrar el dropdown al hacer hover sobre .user-menu */
+.user-menu.active .dropdown-content {
+  display: block; /* Se muestra al hacer click */
+}
+
+/* 6. Estilos para los links y botones DENTRO del dropdown */
+.dropdown-btn,
+.dropdown-item {
+  display: block; /* Ocupan todo el ancho */
   width: 100%;
-  background-color: #007bff;
-  border-radius: 2px;
+  text-decoration: none;
+  padding: 10px 12px;
+  box-sizing: border-box; 
+  border-radius: 6px;
+  margin-bottom: 8px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+/* Quitar margen del último elemento */
+.dropdown-btn:last-child,
+.dropdown-item:last-child {
+    margin-bottom: 0;
+}
+
+/* 7. Estilo para los links (Mi cuenta, Cerrar sesión) */
+.dropdown-item {
+    text-align: left; /* Alineados a la izquierda */
+    color: #333;
+}
+.dropdown-item:hover {
+    background-color: #f4f4f4; /* Un fondo gris sutil al pasar el mouse */
+}
+
+/* 8. Estilo Botón Primario (Iniciar sesión) */
+.dropdown-btn.btn-primary {
+    background-color: #007bff; /* Tu color 'active' */
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+.dropdown-btn.btn-primary:hover {
+    background-color: #0056b3; /* Un azul más oscuro */
+}
+
+/* 9. Estilo Botón Secundario (Crear cuenta) */
+.dropdown-btn.btn-secondary {
+    background-color: #fafafa; /* Tu color de fondo de .navbar-bottom */
+    color: #333;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+.dropdown-btn.btn-secondary:hover {
+    background-color: #f0f0f0;
 }

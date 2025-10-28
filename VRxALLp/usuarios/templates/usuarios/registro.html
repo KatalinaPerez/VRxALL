@@ -1,29 +1,76 @@
 {% extends 'vrxallapp/bases/base.html' %}
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'usuarios/css/auth.css' %}">
+{% endblock %}
+
 {% block content %}
 <div class="auth-page-wrapper">
-    <div class="row justify-content-center">
-        <div class="col-md-6 auth-container">
-            <h2>Crear una Cuenta</h2>
-            <hr>
-            <form method="POST">
-                {% csrf_token %}
+  <div class="auth-container">
 
-                {# El form.as_p renderizará todos los campos: usuario, pass1, pass2 #}
-                {{ form.as_p }}
+    <h2>Crear una Cuenta</h2>
+    <p style="text-align:center; color:#666; margin-bottom:1.5rem;">
+      Únete a <strong>VR x ALL</strong> y descarga la aplicación que más te interese.
+    </p>
 
-                <button type="submit" class="btn btn-primary">Registrarse</button>
-            </form>
+    <form method="POST">
+      {% csrf_token %}
+      
+      <!-- Nombre de usuario -->
+      <label for="id_username">Nombre de usuario</label>
+      {{ form.username }}
 
-            {% if messages %}
-              <ul class="messages mt-3">
-                {% for message in messages %}
-                  <li class="alert alert-{{ message.tags }}">{{ message }}</li>
-                {% endfor %}
-              </ul>
-            {% endif %}
-        </div>
+      <!-- Nombre -->
+      <label for="id_first_name">Nombre</label>
+      {{ form.first_name }}
+
+      <!-- Apellido -->
+      <label for="id_last_name">Apellido</label>
+      {{ form.last_name }}
+
+      <!-- Correo -->
+      <label for="id_email">Correo electrónico</label>
+      {{ form.email }}
+
+      <!-- Edad -->
+      <label for="id_edad">Edad</label>
+      {{ form.edad }}
+
+      <!-- Género -->
+      <label for="id_genero">Género</label>
+      {{ form.genero }}
+
+      <!-- Proyecto -->
+      <label for="id_proyecto_descarga">Proyecto a descargar</label>
+      {{ form.proyecto_descarga }}
+
+      <!-- Contraseña -->
+      <label for="id_password">Contraseña</label>
+      {{ form.password }}
+      <small style="color:#666;">
+        Debe tener al menos 6 caracteres, una mayúscula y un símbolo (ej: * o @)
+      </small>
+
+      <!-- Confirmar Contraseña -->
+      <label for="id_confirmar_password">Confirmar Contraseña</label>
+      {{ form.confirmar_password }}
+
+      <!-- Botón de registro -->
+      <button type="submit">Registrarse</button>
+    </form>
+
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li class="alert alert-{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    <div class="bottom-link">
+      <p>¿Ya tienes cuenta? <a href="{% url 'login' %}">Inicia sesión aquí</a>.</p>
     </div>
+  </div>
 </div>
 {% endblock %}

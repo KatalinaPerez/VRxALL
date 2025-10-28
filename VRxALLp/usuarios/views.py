@@ -2,6 +2,11 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib import messages
+from django.contrib.auth.models import User
+from .forms import RegistroForm
+from .models import Perfil
+import smtplib
+from email.mime.text import MIMEText
 
 def login_view(request):
     
@@ -37,26 +42,40 @@ def login_view(request):
 
 def registro_view(request):
     if request.method == 'POST':
-        # Cuando el usuario envía el formulario...
-        form = UserCreationForm(request.POST)
+        form = RegistroForm(request.POST)
         if form.is_valid():
-            # Si el formulario es válido, Django crea el usuario automáticamente
-            user = form.save()
-            # Mostramos un mensaje de éxito
-            messages.success(request, '¡Cuenta creada exitosamente! Ya puedes iniciar sesión.')
-            # Redirigimos al usuario a la página de login
+            user = form.save(commit=False)
+            user.set_password(form.cleaned_data['password'])
+            user.save()
+            Perfil.objects.create(
+                usuario=user,
+                edad=form.cleaned_data['edad'],
+                genero=form.cleaned_data['genero'],
+                proyecto_descarga=form.cleaned_data['proyecto_descarga']
+            )
+
+            # Enviar correo de bienvenida
+            enviar_bienvenida(user.email, user.first_name)
+
+            messages.success(request, 'Registro exitoso. ¡Bienvenido a VR x ALL!')
             return redirect('login')
-        else:
-            # Si el formulario no es válido, se mostrarán los errores en la plantilla
-            # (ej: las contraseñas no coinciden, el usuario ya existe, etc.)
-            messages.error(request, 'Hubo un error en el registro. Por favor, revisa los datos.')
     else:
-        # Si el usuario solo está visitando la página, le mostramos un formulario vacío
-        form = UserCreationForm()
-        
+        form = RegistroForm()
     return render(request, 'usuarios/registro.html', {'form': form})
 
 def logout_get_view(request):
     logout(request)
     # Redirigimos a la página principal
     return redirect('home')
+
+def enviar_bienvenida(email_destino, nombre):
+    remitente = "tu_correo@gmail.com"
+    clave = "contraseña_app_específica"
+    mensaje = MIMEText(f"¡Hola {nombre}! Bienvenido a VR x ALL. Gracias por unirte a nuestra comunidad.")
+    mensaje['Subject'] = "Bienvenida a VR x ALL"
+    mensaje['From'] = remitente
+    mensaje['To'] = email_destino
+
+    with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+        smtp.login(remitente, clave)
+        smtp.send_message(mensaje)
