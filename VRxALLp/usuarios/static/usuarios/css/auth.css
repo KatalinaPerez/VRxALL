@@ -1,0 +1,107 @@
+/* Estilo para centrar el contenedor en la página */
+.auth-page-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 0; /* Espacio vertical */
+    min-height: 70vh; /* Asegura que ocupe buena parte de la pantalla */
+}
+
+/* Contenedor principal del formulario (el cuadrado) */
+.auth-container {
+    background-color: black; /* Fondo oscuro del navbar */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    color: #e0e0e0;
+    width: 100%;
+    max-width: 450px; /* Ancho máximo del contenedor */
+    border: 1px solid #333;
+}
+
+.auth-container h2 {
+    color: yellow;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.auth-container hr {
+    display: none; /* Ocultamos el <hr> porque ya tenemos un contenedor definido */
+}
+
+/* Estilos para los campos del formulario */
+.auth-container form p {
+    margin-bottom: 20px;
+}
+
+.auth-container label {
+    display: block;
+    margin-bottom: 8px;
+    color: white;
+    font-size: 14px;
+}
+
+.auth-container input[type="text"],
+.auth-container input[type="password"],
+.auth-container input[type="email"] {
+    width: 93%;
+    padding: 12px 15px;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.auth-container input[type="text"]:focus,
+.auth-container input[type="password"]:focus,
+.auth-container input[type="email"]:focus {
+    outline: none;
+    border-color: white; /* Color púrpura de acento */
+    box-shadow: 0 0 8px rgba(131, 82, 212, 0.4);
+}
+
+/* Estilo para el botón principal */
+.auth-container .btn-primary {
+    width: 100%;
+    padding: 12px;
+    background-color: rgb(72, 72, 197); /* Color púrpura de acento */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    color: white;
+}
+
+.auth-container .btn-primary:hover {
+    background-color: #9f7aea;
+}
+
+/* Estilo para el enlace inferior y mensajes */
+.auth-container .bottom-link {
+    text-align: center;
+    font-size: 14px;
+}
+
+.auth-container .bottom-link a {
+    color: yellow;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.auth-container .bottom-link a:hover {
+    text-decoration: underline;
+}
+
+.auth-container .alert {
+    list-style-type: none;
+    text-align: center;
+}
+.auth-container ul.messages {
+    padding: 0;
+}
