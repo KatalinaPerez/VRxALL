@@ -50,7 +50,7 @@
   <!-- Fila inferior -->
   <div class="navbar-bottom">
     <a href="{% url 'home' %}" class="{% if request.path == '/' %}active{% endif %}">Inicio</a>
-    <a href="{% url 'home' %}" class="{% if '/aplicaciones/' in request.path %}active{% endif %}">Aplicaciones</a>
+    <a href="{% url 'home' %}#aplicaciones" class="{% if request.path == '/' %}active{% endif %}">Aplicaciones</a>
     <a href="{% url 'home' %}" class="{% if request.path == '/vincular/' %}active{% endif %}">Vincular dispositivos</a>
   </div>
 </nav>
