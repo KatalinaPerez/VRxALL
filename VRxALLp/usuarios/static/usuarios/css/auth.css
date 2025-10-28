@@ -1,53 +1,46 @@
+/* Estilo para centrar el contenedor en la página */
 .auth-page-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #e8f0ff, #ffffff);
-  background-color: #5a47d1 ; /* o #5a47d1   #6c63ff */
-  padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 0; /* Espacio vertical */
+    min-height: 70vh; /* Asegura que ocupe buena parte de la pantalla */
 }
 
+/* Contenedor principal del formulario (el cuadrado) */
 .auth-container {
-  background-color: #fff;
-  border-radius: 20px;
-  box-shadow: 0 6px 20px rgba(146, 47, 47, 0.1);
-  padding: 2.5rem 3rem;
-  max-width: 500px;
-  width: 100%;
+    background-color: black; /* Fondo oscuro del navbar */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    color: #e0e0e0;
+    width: 100%;
+    max-width: 450px; /* Ancho máximo del contenedor */
+    border: 1px solid #333;
 }
 
 .auth-container h2 {
-  text-align: center;
-  font-size: 1.8rem;
-  color: #3b3b58;
-  margin-bottom: 1.5rem;
+    color: yellow;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: bold;
+    font-size: 24px;
 }
 
-.auth-container form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+.auth-container hr {
+    display: none; /* Ocultamos el <hr> porque ya tenemos un contenedor definido */
 }
 
-.auth-container input,
-.auth-container select {
-  width: 100%;
-  padding: 0.8rem;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
+/* Estilos para los campos del formulario */
+.auth-container form p {
+    margin-bottom: 20px;
 }
 
-.auth-container button {
-  background-color: #5a47d1;
-  color: white;
-  font-weight: bold;
-  padding: 0.9rem;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.3s;
+.auth-container label {
+    display: block;
+    margin-bottom: 8px;
+    color: white;
+    font-size: 14px;
 }
 
 .auth-container input[type="text"],
@@ -61,15 +54,54 @@
     font-size: 16px;
 }
 
-.bottom-link {
-  text-align: center;
-  margin-top: 1rem;
+.auth-container input[type="text"]:focus,
+.auth-container input[type="password"]:focus,
+.auth-container input[type="email"]:focus {
+    outline: none;
+    border-color: white; /* Color púrpura de acento */
+    box-shadow: 0 0 8px rgba(131, 82, 212, 0.4);
 }
 
-.bottom-link a {
-  color: #5a47d1;
-  font-weight: 600;
-  text-decoration: none;
+/* Estilo para el botón principal */
+.auth-container .btn-primary {
+    width: 100%;
+    padding: 12px;
+    background-color: rgb(72, 72, 197); /* Color púrpura de acento */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    color: white;
 }
 
+.auth-container .btn-primary:hover {
+    background-color: #9f7aea;
+}
 
+/* Estilo para el enlace inferior y mensajes */
+.auth-container .bottom-link {
+    text-align: center;
+    font-size: 14px;
+}
+
+.auth-container .bottom-link a {
+    color: yellow;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.auth-container .bottom-link a:hover {
+    text-decoration: underline;
+}
+
+.auth-container .alert {
+    list-style-type: none;
+    text-align: center;
+}
+.auth-container ul.messages {
+    padding: 0;
+}
