@@ -29,8 +29,8 @@ def detalles_app(request, slug):
             'tipo': 'Destreza',
             'edades':'Contenido es apto para todas las edades',
             'candado':'Esta aplicación recopilará y almacenará tu información y datos de progreso, incluyendo tu nombre de usuario, para optimizar tu experiencia y contribuir a mejoras futuras.',
-            'descripcion': 'Imagina entrenar tu mente en un mundo que pone a prueba tu calma interior.\n\n '
-            'En SportMind, te enfrentarás a desafíos de realidad virtual que combinan cuerpo y mente: desde mantener el pulso firme en un tiro al blanco hasta controlar tus emociones en plena escalada.'
+            'descripcion': 'Imagina entrenar tu mente en un mundo que pone a prueba tu calma interior.\n\n'
+            'En SportMind, te enfrentarás a desafíos de realidad virtual que combinan cuerpo y mente: desde mantener el pulso firme en un tiro al blanco hasta controlar tus emociones en plena escalada.\n\n'
             'Mientras tu frecuencia cardíaca y reacciones emocionales se hacen visibles, un avatar guía estará contigo, dándote apoyo, contención y estrategias para superar cada reto...',
             'imagenes': [
                 'img/neuroflex1.png',
