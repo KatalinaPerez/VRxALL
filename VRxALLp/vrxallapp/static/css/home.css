@@ -115,3 +115,112 @@ h1 {
     font-style: italic;
     color: #555;
 }
+
+
+/*
+========================================
+ESTILOS MANUALES PARA EL MODAL (COMPLETO)
+========================================
+*/
+
+/* El fondo oscuro (backdrop) */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  
+  /* Oculto por defecto */
+  display: none;
+  opacity: 0;
+  transition: opacity 0.15s linear;
+}
+
+/* El estado visible (cuando el JS agrega la clase .show) */
+.modal.show {
+  display: block;
+  opacity: 1;
+}
+
+/* El contenedor que centra la ventana */
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 1.75rem auto; /* Centrado y con margen superior */
+  max-width: 500px; /* Ancho del modal, ajústalo a tu gusto */
+}
+
+/* La ventana blanca */
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+  outline: 0;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+}
+
+/* Header (Título centrado) */
+.modal-header {
+  display: flex;
+  justify-content: center;   /* <-- CENTRA EL TÍTULO */
+  align-items: center;
+  padding: 1rem 1rem;
+  border-bottom: 1px solid #dee2e6;
+  position: relative;        /* <-- NECESARIO PARA EL BOTÓN "X" */
+}
+
+/* Cuerpo del modal */
+.modal-body {
+  position: relative;
+  flex: 1 1 auto;
+  padding: 1rem;
+  color: #333; /* Color de texto para el párrafo */
+}
+
+/* Footer (botones) */
+.modal-footer {
+  display: flex;
+  justify-content: flex-end; /* Botones a la derecha */
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid #dee2e6;
+  gap: 0.5rem; /* Espacio entre botones */
+}
+
+/* Estilos para los botones (puedes personalizarlos) */
+.modal-footer .btn {
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-footer .btn-secondary {
+  color: #fff;
+  background-color: #6c757d;
+  border: 1px solid #6c757d;
+}
+
+.modal-footer .btn-primary {
+  color: #fff;
+  background-color: #0d6efd; /* O tu color primario */
+  border: 1px solid #0d6efd;
+}
+
+
+.btn-close:hover {
+  opacity: 0.75;
+}
+
+/* Título (grande) */
+.modal-title {
+  font-size: 1.5rem;   /* Tamaño del título */
+  font-weight: 600;  /* Grosor del título */
+}

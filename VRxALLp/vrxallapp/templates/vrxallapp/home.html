@@ -40,26 +40,36 @@
     </div>
 
     <div id="aplicaciones" class="apps-section">
-        <h2>Conoce nuestras aplicaciones</h2>
-        <div class="apps-grid">
-            <a href="{% url 'detalles_app' 'sportmind' %}" class="app-card">
-                <img src="{% static 'img/sportmind.png' %}" alt="SportMind">
-                <p><strong>SportMind</strong><br>Deporte • Destreza</p>
-            </a>
-            <a href="{% url 'detalles_app' 'neuroflex' %}" class="app-card">
-                <img src="{% static 'img/neuroflex.png' %}" alt="NeuroFlex">
-                <p><strong>NeuroFlex</strong><br>Testeo • Exigencia</p>
-            </a>
-            <a href="{% url 'detalles_app' 'emotionlab' %}" class="app-card">
-                <img src="{% static 'img/emotionlab.png' %}" alt="EmotionLab">
-                <p><strong>EmotionLab</strong><br>Cognición • Estimulación</p>
-            </a>
-            <a href="{% url 'detalles_app' 'acvr' %}" class="app-card">
-                <img src="{% static 'img/acvr.png' %}" alt="AcVR">
-                <p><strong>AcVR</strong><br>Estimulación • Desarrollo</p>
-            </a>
+    <h2>Conoce nuestras aplicaciones</h2>
+    <div class="apps-grid">
+
+        {% for slug, app_data in apps.items %}
+
+            <div class="app-card" data-bs-toggle="modal" data-bs-target="#{{ slug }}Modal">
+                <img src="{% static 'img/' %}{{ slug }}.png" alt="{{ app_data.nombre }}">
+                <p><strong>{{ app_data.nombre }}</strong><br>{{ app_data.categoria }} • {{ app_data.tipo }}</p>
+            </div>
+
+            <div class="modal fade" id="{{ slug }}Modal" tabindex="-1" aria-labelledby="{{ slug }}ModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="{{ slug }}ModalLabel">{{ app_data.nombre }}</h5>
+                        </div>
+                        <div class="modal-body">
+                            <p>{{ app_data.descripcion }}</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <a href="{% url 'detalles_app' slug %}" class="btn btn-primary">Ver más detalles</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
         </div>
-        <p class="note">Recuerda que nuestras aplicaciones están en constante actualización</p>
-    </div>
+    <p class="note">Recuerda que nuestras aplicaciones están en constante actualización</p>
+</div>
 
 {% endblock %}
